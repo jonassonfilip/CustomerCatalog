@@ -1,7 +1,7 @@
 .calendar{
-    background: #2CA8C2;
+    background: green;
     color: #FFF;
-    width:100%;
+    width:50%;
     font-family: 'Oxygen';
     table-layout:fixed;
 }

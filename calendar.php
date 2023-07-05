@@ -8,5 +8,4 @@ use benhall14\phpCalendar\Calendar as Calendar;
 
 $calendar = new Calendar;
 $calendar->useMondayStartingDate();
-
 $calendar->display();
