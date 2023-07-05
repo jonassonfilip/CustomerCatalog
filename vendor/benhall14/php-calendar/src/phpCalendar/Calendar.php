@@ -13,7 +13,7 @@ use stdClass;
  * @package protocols
  * @version 1.2
  * @author Benjamin Hall <https://conobe.co.uk>
-*/
+ */
 class Calendar
 {
     /**
@@ -52,7 +52,7 @@ class Calendar
      *
      * @var string
      */
-    private $day_format = 'initials';
+    private $day_format = 'full';
 
     /**
      * Start day of week. Default = 6 (Sunday)
@@ -69,52 +69,52 @@ class Calendar
     private $days = [
         'sunday' => [
             'dow' => 0,
-            'initials' => 'S',
-            'full' => 'Sunday'
+            'initials' => 'Sön',
+            'full' => 'Söndag'
         ],
         'monday' => [
             'dow' => 1,
-            'initials' => 'M',
-            'full' => 'Monday',
-        ], 
+            'initials' => 'Mån',
+            'full' => 'Måndag',
+        ],
         'tuesday' => [
             'dow' => 2,
-            'initials' => 'T',
-            'full' => 'Tuesday',
+            'initials' => 'Tis',
+            'full' => 'Tisdag',
         ],
         'wednesday' => [
             'dow' => 3,
-            'initials' => 'W',
-            'full' => 'Wednesday',
+            'initials' => 'Ons',
+            'full' => 'Onsdag',
         ],
         'thursday' => [
             'dow' => 4,
-            'initials' => 'T',
-            'full' => 'Thursday',
+            'initials' => 'Tors',
+            'full' => 'Torsdag',
         ],
         'friday' => [
             'dow' => 5,
-            'initials' => 'F',
-            'full' => 'Friday',
+            'initials' => 'Fre',
+            'full' => 'Fredag',
         ],
         'saturday' => [
             'dow' => 6,
-            'initials' => 'S',
-            'full' => 'Saturday',
+            'initials' => 'Lör',
+            'full' => 'Lördag',
         ],
     ];
-    
+
     /**
      * The month names. Default EN.
      *
      * @var array
      */
     private $months = [
-        'january' => 'January', 
-        'february' => 'February', 
-        'march' => 'March', 
-        'april' => 'April', 
-        'may' => 'May', 
+        'january' => 'January',
+        'february' => 'February',
+        'march' => 'March',
+        'april' => 'April',
+        'may' => 'May',
         'june' => 'June',
         'july' => 'July',
         'august' => 'August',
@@ -137,35 +137,35 @@ class Calendar
      * @var boolean
      */
     private $hide_sundays = false;
-    
+
     /**
      * Hide all 'mondays' from the calendar view.
      *
      * @var boolean
      */
     private $hide_mondays = false;
-    
+
     /**
      * Hide all 'tuesdays' from the calendar view.
      *
      * @var boolean
      */
     private $hide_tuesdays = false;
-    
+
     /**
      * Hide all 'wednesdays' from the calendar view.
      *
      * @var boolean
      */
     private $hide_wednesdays = false;
-    
+
     /**
      * Hide all 'thursdays' from the calendar view.
      *
      * @var boolean
      */
     private $hide_thursdays = false;
-    
+
     /**
      * Hide all 'fridays' from the calendar view.
      *
@@ -240,17 +240,17 @@ class Calendar
         ]);
 
         $this->setMonths([
-            'january' => 'Enero',  
-            'february' => 'Febrero',  
-            'march' => 'Marzo',  
-            'april' => 'Abril',  
-            'may' => 'Mayo',  
-            'june' => 'Junio',  
-            'july' => 'Julio',  
-            'august' => 'Agosto',  
-            'september' => 'Septiembre',  
-            'october' => 'Octubre',  
-            'november' => 'Noviembre',  
+            'january' => 'Enero',
+            'february' => 'Febrero',
+            'march' => 'Marzo',
+            'april' => 'Abril',
+            'may' => 'Mayo',
+            'june' => 'Junio',
+            'july' => 'Julio',
+            'august' => 'Agosto',
+            'september' => 'Septiembre',
+            'october' => 'Octubre',
+            'november' => 'Noviembre',
             'december' => 'Diciembre'
         ]);
 
@@ -414,7 +414,7 @@ class Calendar
      */
     public function stylesheet($print = true)
     {
-        $styles = '<style>.calendar{background:#2ca8c2;color:#fff;width:100%;font-family:Oxygen;table-layout:fixed}.calendar.purple{background:#913ccd}.calendar.pink{background:#f15f74}.calendar.orange{background:#f76d3c}.calendar.yellow{background:#f7d842}.calendar.green{background:#98cb4a}.calendar.grey{background:#839098}.calendar.blue{background:#5481e6}.calendar-title th{font-size:22px;font-weight:700;padding:20px;text-align:center;text-transform:uppercase;background:rgba(0,0,0,.05)}.calendar-header th{padding:10px;text-align:center;background:rgba(0,0,0,.1)}.calendar tbody tr td{text-align:center;vertical-align:top;width:14.28%}.calendar tbody tr td.pad{background:rgba(255,255,255,.1)}.calendar tbody tr td.day div:first-child{padding:4px;line-height:17px;height:25px}.calendar tbody tr td.day div:last-child{font-size:10px;padding:4px;min-height:25px}.calendar tbody tr td.today{background:rgba(0,0,0,.25)}.calendar tbody tr td.mask,.calendar tbody tr td.mask-end,.calendar tbody tr td.mask-start{background:#c23b22}.calendar .cal-weekview-time{padding:4px 2px 2px 4px;}.calendar .cal-weekview-time > div{background:rgba(0,0,0,0.03);padding:10px;min-height:50px;}.calendar .cal-weekview-event.mask-start,.calendar .cal-weekview-event.mask,.calendar .cal-weekview-event.mask-end{background:#C23B22;margin-bottom:3px;padding:5px;}.calendar .cal-weekview-time-th{background:rgba(0,0,0,.1);}.calendar .cal-weekview-time-th > div{padding:10px;min-height:50px;}</style>';
+        $styles = '<style>.calendar{background:#2ca8c2;color:#0F1108;border:solid;width:100%;font-family:Shippori Antique;table-layout:fixed}.calendar.purple{background:#913ccd}.calendar.pink{background:#f15f74}.calendar.orange{background:#f76d3c}.calendar.yellow{background:#f7d842}.calendar.green{background:#98cb4a}.calendar.grey{background:#839098}.calendar.blue{background:#5481e6}.calendar-title th{font-size:22px;font-weight:700;padding:20px;text-align:center;text-transform:uppercase;background:rgba(0,0,0,.05)}.calendar-header th{padding:10px;text-align:center;background:rgba(0,0,0,.1)}.calendar tbody tr td{text-align:center;vertical-align:top;width:14.28%}.calendar tbody tr td.pad{background:rgba(255,255,255,.1)}.calendar tbody tr td.day div:first-child{padding:4px;line-height:17px;height:25px}.calendar tbody tr td.day div:last-child{font-size:10px;padding:4px;min-height:25px}.calendar tbody tr td.today{background:rgba(0,0,0,.25)}.calendar tbody tr td.mask,.calendar tbody tr td.mask-end,.calendar tbody tr td.mask-start{background:#92CDFA}.calendar .cal-weekview-time{padding:4px 2px 2px 4px;}.calendar .cal-weekview-time > div{background:rgba(0,0,0,0.03);padding:10px;min-height:50px;}.calendar .cal-weekview-event.mask-start,.calendar .cal-weekview-event.mask,.calendar .cal-weekview-event.mask-end{background:#C23B22;margin-bottom:3px;padding:5px;}.calendar .cal-weekview-time-th{background:rgba(0,0,0,.1);}.calendar .cal-weekview-time-th > div{padding:10px;min-height:50px;}</style>';
 
         if ($print) {
             echo $styles;
@@ -443,7 +443,7 @@ class Calendar
     public function addEvent($start, $end, $summary = false, $mask = false, $classes = false)
     {
         $event = new stdClass();
-        
+
         if (strpos($start, ' ') !== false) {
             $event->start = DateTime::createFromFormat('Y-m-d H:i', $start);
         } else {
@@ -455,9 +455,9 @@ class Calendar
         } else {
             $event->end = DateTime::createFromFormat('Y-m-d', $end);
         }
-        
+
         $event->mask = $mask ? true : false;
-        
+
         if ($classes) {
             if (is_array($classes)) {
                 $classes = implode(' ', $classes);
@@ -467,7 +467,7 @@ class Calendar
         } else {
             $event->classes = false;
         }
-        
+
         $event->summary = $summary ? $summary : false;
 
         $this->events[] = $event;
@@ -595,7 +595,7 @@ class Calendar
             }
         }
 
-        return ($found_events) ? : false;
+        return ($found_events) ?: false;
     }
 
     /**
@@ -869,7 +869,7 @@ class Calendar
 
         $days = $this->getDays();
         foreach ($dates as $date) {
-            $calendar .= '<th class="cal-th cal-th-' . strtolower($date->format('l')). '">';
+            $calendar .= '<th class="cal-th cal-th-' . strtolower($date->format('l')) . '">';
             $calendar .= '<div class="cal-weekview-dow">' . $days[strtolower($date->format('l'))]['full'] . '</div>';
             $calendar .= '<div class="cal-weekview-day">' . $date->format('j') . '</div>';
             $calendar .= '<div class="cal-weekview-month">' . $this->months[strtolower($date->format('F'))] . '</div>';
@@ -886,11 +886,11 @@ class Calendar
             $calendar .= '<tr>';
 
             $calendar .= '<td class="cal-weekview-time-th"><div>' . $time . '</div></td>';
-            
-            foreach ($dates as $date ){
+
+            foreach ($dates as $date) {
 
                 $datetime = $date->setTime(substr($time, 0, 2), substr($time, 3, 2));
-                
+
                 $events = $this->findEvents($datetime);
 
                 $class = '';
@@ -926,10 +926,9 @@ class Calendar
                         $calendar .= '<div class="cal-weekview-event ' . $class . '">';
                         $calendar .= $event_summary;
                         $calendar .= '</div>';
-
                     }
                 }
-                
+
                 $calendar .= '</div>';
 
                 $calendar .= '</td>';
@@ -955,7 +954,7 @@ class Calendar
     {
         if ($this->type == 'week') {
             return $this->asWeekView($date, $color);
-        } else{
+        } else {
             return $this->asMonthView($date, $color);
         }
     }
