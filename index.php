@@ -29,4 +29,8 @@ require(__DIR__ . '/calendar.php');
 </head>
 
 <body>
+    <div class="monthButtons">
+        <button>Föregående månad</button>
+        <button>Nästa månad</button>
+    </div>
 </body>
