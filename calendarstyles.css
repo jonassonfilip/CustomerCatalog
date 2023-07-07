@@ -5,12 +5,9 @@
   margin-right: 8rem;
 }
 
-#addToCalendar {
-    font-size: 1rem;
-    padding: 1rem;
-    background-color: #58B09C;
-    border: none;
-    border-radius: 0.5rem;
+#addBooking {
+    display: flex;
+    flex-direction: row;
 }
 
 .addEvent {
@@ -19,4 +16,20 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+}
+
+.customerForm {
+    margin-right: 4rem;
+}
+
+.typeOfWork {
+
+}
+
+#addToCalendar {
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: #58B09C;
+    border: none;
+    border-radius: 0.5rem;
 }
