@@ -5,16 +5,18 @@
   margin-right: 8rem;
 }
 
+#addToCalendar {
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: #58B09C;
+    border: none;
+    border-radius: 0.5rem;
+}
+
 .addEvent {
     display: flex;
     width: fit-content;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-}
-
-#bookingForm {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.4rem;
 }

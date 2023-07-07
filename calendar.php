@@ -26,6 +26,8 @@ $events[] = array(
     'mask' => true
 );
 
+$treatments = ["Klippning dam", "Klippning herr", "Slingor", "Toning", "Tvätta håret"];
+
 $calendar->addEvents($events);
 ?>
 <div class="addEvent">
@@ -33,7 +35,7 @@ $calendar->addEvents($events);
     $calendar->display();
     ?>
 
-    <section id="bookingForm">
+    <section>
         <form action="bookings.php" method="post">
             <div>
                 <label for="name">Namn:</label><br>
@@ -67,18 +69,23 @@ $calendar->addEvents($events);
             <br>
 
             <div>
-                <label for="type_of_work">Utfört arbete:</label> <br>
-                <input type="checkbox" name="treatment1" value="1">Klippning dam
+                <label for="type_of_work">Utfört arbete:</label><br>
+                <input type="checkbox" name="treatment1" value="1">
+                <?php echo $treatments[0]; ?>
                 <br>
-                <input type="checkbox" name="treatment2" value="2">Klippning herr
+                <input type="checkbox" name="treatment2" value="2">
+                <?php echo $treatments[1]; ?>
                 <br>
-                <input type="checkbox" name="treatment3" value="3">Slingor
+                <input type="checkbox" name="treatment3" value="3">
+                <?php echo $treatments[2]; ?>
                 <br>
-                <input type="checkbox" name="treatment4" value="4">Toning
+                <input type="checkbox" name="treatment4" value="4">
+                <?php echo $treatments[3]; ?>
                 <br>
-                <input type="checkbox" name="treatment5" value="5">Tvätta hår
+                <input type="checkbox" name="treatment5" value="5">
+                <?php echo $treatments[4]; ?>
                 <br><br>
-                <input type="submit" name="submit" value="Lägg till i kalender">
+                <input type="submit" name="submit" id="addToCalendar" value="Lägg till i kalender">
             </div>
         </form>
     </section>

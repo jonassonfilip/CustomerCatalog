@@ -33,4 +33,8 @@ require(__DIR__ . '/functions.php');
         <button>Föregående månad</button>
         <button>Nästa månad</button>
     </div>
+
+    <div>
+        <button>Kundregister</button>
+    </div>
 </body>
