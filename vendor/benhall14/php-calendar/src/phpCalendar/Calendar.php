@@ -110,16 +110,16 @@ class Calendar
      * @var array
      */
     private $months = [
-        'january' => 'January',
-        'february' => 'February',
-        'march' => 'March',
+        'january' => 'Januari',
+        'february' => 'Februari',
+        'march' => 'Mars',
         'april' => 'April',
-        'may' => 'May',
-        'june' => 'June',
-        'july' => 'July',
-        'august' => 'August',
+        'may' => 'Maj',
+        'june' => 'Juni',
+        'july' => 'Juli',
+        'august' => 'Augusti',
         'september' => 'September',
-        'october' => 'October',
+        'october' => 'Oktober',
         'november' => 'November',
         'december' => 'December'
     ];

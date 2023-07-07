@@ -145,6 +145,8 @@ $calendar->addEvents($events);
             <?php echo $treatments[13]; ?>
             <br><br>
             <input type="submit" name="submit" id="addToCalendar" value="Lägg till i kalender">
+            <br>
+            <button class="customerRegisterButton">Kundregister</button>
         </div>
         </form>
     </div>

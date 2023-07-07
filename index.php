@@ -25,16 +25,12 @@ require(__DIR__ . '/functions.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Shippori+Antique&display=swap" rel="stylesheet">
 
-    <title>Kundregister</title>
+    <title>Bokningssystem</title>
 </head>
 
 <body>
     <div class="monthButtons">
-        <button>Föregående månad</button>
-        <button>Nästa månad</button>
-    </div>
-
-    <div>
-        <button>Kundregister</button>
+        <button class="monthButton">Föregående månad</button>
+        <button class="monthButton">Nästa månad</button>
     </div>
 </body>
