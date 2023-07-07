@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\ClientException;
 require 'vendor/autoload.php';
 require(__DIR__ . '/header.php');
 require(__DIR__ . '/calendar.php');
-/* require(__DIR__ . '/functions.php'); */
+require(__DIR__ . '/functions.php');
 ?>
 
 <!DOCTYPE html>

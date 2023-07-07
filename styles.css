@@ -23,6 +23,10 @@ p {
     font-size: 16px;
 }
 
+input {
+    margin-bottom: 0.5rem;
+}
+
 .monthButtons {
     width: 50%;
     display: flex;
