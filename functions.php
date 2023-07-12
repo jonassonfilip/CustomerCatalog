@@ -18,8 +18,9 @@ function bookings($customerId, $name, $email, $phoneNumber, $date, $startTime, $
         $startTime = htmlspecialchars(trim($_POST['start']));
         $endTime = htmlspecialchars(trim($_POST['end']));
         $customerId = $_POST['ID'];
+        $price = $_POST['price'];
         // Assigns the function totalCost to the variable with the same name. See further down.
-        $totalCost = totalCost($customerId, $treatments);
+        $totalCost = totalCost($customerId, $treatments, $price);
 
         $query = 'INSERT INTO bookings (name, email, phone, date, start, end, total_cost) VALUES (:name, :email, :phone, :date, :start, :end, :total_cost)';
 
@@ -32,21 +33,18 @@ function bookings($customerId, $name, $email, $phoneNumber, $date, $startTime, $
         $statement->bindParam(':start', $startTime, PDO::PARAM_STR);
         $statement->bindParam(':end', $endTime, PDO::PARAM_STR);
         $statement->bindParam(':ID', $customerId, PDO::PARAM_INT);
-        $statement->bindParam(':treatments', $treatments, PDO::PARAM_INT);
+        $statement->bindParam(':treatments', $treatments, PDO::PARAM_STR);
         $statement->bindParam(':total_cost', $totalCost, PDO::PARAM_INT);
 
         // Creating receipt
         $receiptContent = [
-            "Hotel: " . $hotel = "El Morrobocho",
-            "Island: " . $island = "Isla del Cantoor",
-            "Stars: " . $stars = "1",
-            "Name: " . $name,
+            "Namn: " . $name,
             "E-mail: " . $email,
-            "Transfer-code: " . $transferCode,
-            "Arrival date: " . $arrivalDate,
-            "Departure date: " . $departureDate,
-            "Room: " . $room_id,
-            "Cost: $" . $totalCost
+            "Telefonnummer: " . $phoneNumber,
+            "Datum: " . $date,
+            "Tid: " . $startTime . ' - ' . $endTime,
+            "Behandling: " . $treatments,
+            "Kostnad: " . $totalCost
         ];
 
         $generateReceipt = file_get_contents(__DIR__ . '/confirmation.json');
@@ -57,8 +55,8 @@ function bookings($customerId, $name, $email, $phoneNumber, $date, $startTime, $
         // Directs the traveller to the receipt
         header('Content-Type: application/json');
 
-        echo "Thank you for booking your stay at " . $hotel . ". Hope to see you soon again. \n
-        Here is your receipt:\n\n" .
+        echo "Tack för besöket! Hoppas vi ses snart igen! \n
+        Här är ditt kvitto:\n\n" .
             json_encode(end($receipt));
 
         $statement->execute();
@@ -67,7 +65,7 @@ function bookings($customerId, $name, $email, $phoneNumber, $date, $startTime, $
 
 // Calculating the total cost of every stay.
 
-function totalCost(int $room_id, string $arrivalDate, string $departureDate)
+function totalCost(int $customerId, string $treatments, int $price)
 {
     $database = connect('/bookings.db');
     $stmt = $database->prepare('SELECT price FROM rooms WHERE id = :room_id');
