@@ -8,30 +8,31 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 
 // Function that handeles the bookings. Connecting to database, making variables out of the content the traveller posts in the form.
-function bookings($name, $email, $transferCode, $arrivalDate, $departureDate, $room_id, $totalCost)
+function bookings($customerId, $name, $email, $phoneNumber, $date, $startTime, $endTime, $treatments, $totalCost)
 {
     $database = connect('/bookings.db');
-    if (isset($_POST['name'], $_POST['email'], $_POST['transfer_code'], $_POST['arrival_date'], $_POST['departure_date'], $_POST['room_id'])) {
+    if (isset($_POST['name'], $_POST['email'], $_POST['phone'], $_POST['date'], $_POST['start'], $_POST['end'], $_POST['ID'])) {
         $name = htmlspecialchars(trim($_POST['name']));
         $email = htmlspecialchars(trim($_POST['email']));
-        $transferCode = htmlspecialchars(trim($_POST['transfer_code']));
-        $arrivalDate = htmlspecialchars(trim($_POST['arrival_date']));
-        $departureDate = htmlspecialchars(trim($_POST['departure_date']));
-        $roomId = $_POST['room_id'];
-        $roomId = intval($roomId);
+        $phoneNumber = htmlspecialchars(trim($_POST['phone']));
+        $startTime = htmlspecialchars(trim($_POST['start']));
+        $endTime = htmlspecialchars(trim($_POST['end']));
+        $customerId = $_POST['ID'];
         // Assigns the function totalCost to the variable with the same name. See further down.
-        $totalCost = totalCost($roomId, $arrivalDate, $departureDate);
+        $totalCost = totalCost($customerId, $treatments);
 
-        $query = 'INSERT INTO bookings (name, email, transfer_code, arrival_date, departure_date, room_id, total_cost) VALUES (:name, :email, :transfer_code, :arrival_date, :departure_date, :room_id, :total_cost)';
+        $query = 'INSERT INTO bookings (name, email, phone, date, start, end, total_cost) VALUES (:name, :email, :phone, :date, :start, :end, :total_cost)';
 
         $statement = $database->prepare($query);
 
         $statement->bindParam(':name', $name, PDO::PARAM_STR);
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
-        $statement->bindParam(':transfer_code', $transferCode, PDO::PARAM_STR);
-        $statement->bindParam(':arrival_date', $arrivalDate, PDO::PARAM_STR);
-        $statement->bindParam(':departure_date', $departureDate, PDO::PARAM_STR);
-        $statement->bindParam(':room_id', $roomId, PDO::PARAM_INT);
+        $statement->bindParam(':phone', $phoneNumber, PDO::PARAM_STR);
+        $statement->bindParam(':date', $date, PDO::PARAM_STR);
+        $statement->bindParam(':start', $startTime, PDO::PARAM_STR);
+        $statement->bindParam(':end', $endTime, PDO::PARAM_STR);
+        $statement->bindParam(':ID', $customerId, PDO::PARAM_INT);
+        $statement->bindParam(':treatments', $treatments, PDO::PARAM_INT);
         $statement->bindParam(':total_cost', $totalCost, PDO::PARAM_INT);
 
         // Creating receipt
